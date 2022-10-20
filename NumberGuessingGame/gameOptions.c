@@ -5,6 +5,8 @@
 
 int max_number = 10;
 const int MAXIMUM_ALLOWED = 10000;
+
+
 void play(void)
 {
 	char character[2];
@@ -15,7 +17,9 @@ void play(void)
 
 	// random number between 1 and the max number
 	int randNum = rand() % max_number + 1;
-	printf("%d\n", randNum);
+
+
+	printf("Enter a number between 1 and %d\n", max_number);
 
 	do
 	{
