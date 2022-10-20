@@ -59,18 +59,7 @@ int isMagicSquare(int square[3][3])
     }
 
     // Checking diagonals
-    tempVal = 0;
-    for (int i = 0; i < 3; i++)
-    {
-        tempVal = tempVal + square[i][i];
-    }
-    if (tempVal != val)
-    {
-        return 0;
-    }
-
-    tempVal = square[0][2] + square[1][1] + square[2][0];
-    if (tempVal != val)
+    if ((square[0][2] + square[1][1] + square[2][0]) != val || square[0][0] + square[1][1] + square[2][2] != val)
     {
         return 0;
     }
@@ -85,18 +74,20 @@ int main()
     int magicSquare[3][3];
     int count = 0;
     time_t t;
+
     // do while loop while the function magic square is not true
     do
     {
         count++;
         int used[10] = {0};
         srand((unsigned)time(&t) + count); // Changing seed , so that we get new values each time
+
         for (int i = 0; i < 3; i++)
         {
             for (int j = 0; j < 3; j++)
             {
-                int n = rand() % 9 + 1;
-                while (used[n])
+                int n = rand() % 9 + 1; // random number between 1 - 9
+                while (used[n]) // generating random numbers until all of the possible numbers are used
                 {
                     n = rand() % 9 + 1;
                 }
@@ -107,7 +98,7 @@ int main()
     } while (isMagicSquare(magicSquare) != 1);
 
     // have a counter for the number of squares generated
-    printf("No. of squares generated : %d \n", count);
+    printf("No. of squares generated : %d\n", count);
 
     // at the end print the grid
     printSquare(magicSquare);
