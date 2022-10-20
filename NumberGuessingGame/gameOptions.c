@@ -4,7 +4,7 @@
 #include "gameOptions.h"
 
 int max_number = 10;
-
+const int MAXIMUM_ALLOWED = 10000;
 void play(void)
 {
 	char character[2];
@@ -48,8 +48,8 @@ void setMaxNum(void)
 	{
 		printf("Enter the new maximum number:\n");
 		scanf("%d", &max);
-		// if the new maximum number is under 0
-		if (max <= 0)
+		// if the new maximum number is under 0 - MAXIMUM_ALLOWED (10000)
+		if (max <= 0 && max >= MAXIMUM_ALLOWED)
 			printf("Please enter a valid number greater than 0 \n");
 		// if the new number is valid assign it to our global variable
 		else {
