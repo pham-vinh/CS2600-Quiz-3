@@ -10,33 +10,33 @@ void printBill(double meal, double tax, double tip)
 	printf("Tip Amount: %.2f\n", tip);
 	printf("Tax Amount: %.2f\n", tax);
 	
-    total = meal + (tax/100)*meal + (tip/100)*meal; // calculate total
+    total = meal + tax + tip; // calculate total
     printf("Total: %.2f\n", total);//print total
 }
 int main(int argc, char *argv[]) {
 
 	// initiaize variable for random.
 	time_t t;
-
+	char *ptr;
 	// create an array of menu items
 	// 0 = salad, 1 = soup, 2 = sandwich, 3 = pizza
 	double menuItems[] = {9.95, 4.55, 13.25, 22.35};
-	double totalBill = 0.0;
-
+	const char *menuName[] = {"Salad", "Soup", "Sandwich", "Pizza"};
 	// take in command line arguements for tip, and tax percentages
 
     /* Init random number generator using time */
     srand((unsigned)time(&t));
 
-    double meal,tax,tip; // declare 4 variables
-    meal = menuItems[rand() % 4]; // take inputs
-    tax = ((double)*argv[1]/100)*meal;
-	tip = ((double)*argv[2]/100)*meal;
-
-	printBill(meal, tax, tip);
+    double meal,tax,tip; // declare 3 variables
+	int random = rand() % 4;
+    meal = menuItems[random];
+	printf("Meal Chosen: %s - %.2f\n", menuName[random], menuItems[random]);
+	tip = ((double)strtod(argv[2], &ptr)/100.0)*meal; // calculate tip amount
+    tax = ((double)strtod(argv[1], &ptr)/100.0)*meal; // calculate tax amount
 
 	// call function to display [meal cost, tax amount, and total bill]
 	// have a function to add the total bill including tip
+	printBill(meal, tax, tip);
 
     return EXIT_SUCCESS;
 }
