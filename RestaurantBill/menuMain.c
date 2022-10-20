@@ -6,12 +6,12 @@ void printBill(double meal, double tax, double tip)
 {
 	float total;
     printf("\n**Bill**\n");
-	printf("Meal Cost: %.2f\n", meal);
-	printf("Tip Amount: %.2f\n", tip);
-	printf("Tax Amount: %.2f\n", tax);
+	printf("Meal Cost: $%.2f\n", meal);
+	printf("Tip Amount: $%.2f\n", tip);
+	printf("Tax Amount: $%.2f\n", tax);
 	
     total = meal + tax + tip; // calculate total
-    printf("Total: %.2f\n", total);//print total
+    printf("Total Bill: $%.2f\n", total);//print total
 }
 int main(int argc, char *argv[]) {
 
@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
     double meal,tax,tip; // declare 3 variables
 	int random = rand() % 4;
     meal = menuItems[random];
-	printf("Meal Chosen: %s - %.2f\n", menuName[random], menuItems[random]);
+	printf("\nMeal Chosen: %s $%.2f\n", menuName[random], menuItems[random]);
 	tip = ((double)strtod(argv[2], &ptr)/100.0)*meal; // calculate tip amount
     tax = ((double)strtod(argv[1], &ptr)/100.0)*meal; // calculate tax amount
 
