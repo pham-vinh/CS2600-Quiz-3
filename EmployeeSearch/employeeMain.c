@@ -9,6 +9,7 @@ int main(void)
 {
 	// defined in employeeSearchOne.c
 	// in employeeOne.c
+	// adding new 2 new methods
 	PtrToEmployee searchEmployeeByNumber(const Employee table[], int sizeTable, long numberToFind);
 	PtrToEmployee searchEmployeeByName(const Employee table[], int sizeTable, char *nameToFind);
 	PtrToEmployee searchEmployeeByPhoneNumber(const Employee table[], int sizeTable, char *phoneToFind);

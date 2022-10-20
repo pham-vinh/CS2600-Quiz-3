@@ -27,6 +27,7 @@ PtrToEmployee searchEmployeeByName(PtrToConstEmployee ptr, int tableSize, char *
 	return NULL;
 }
 
+// Implemented search employee by phone number
 PtrToEmployee searchEmployeeByPhoneNumber(PtrToConstEmployee ptr, int tableSize, char *targetNumber)
 {
 	const PtrToConstEmployee endPtr = ptr + tableSize;
@@ -40,6 +41,7 @@ PtrToEmployee searchEmployeeByPhoneNumber(PtrToConstEmployee ptr, int tableSize,
 	return NULL;
 }
 
+// implement search employee by salary
 PtrToEmployee searchEmployeeBySalary(PtrToConstEmployee ptr, int tableSize, double targetSalary)
 {
 	const PtrToConstEmployee endPtr = ptr + tableSize;
