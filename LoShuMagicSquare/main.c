@@ -44,6 +44,20 @@ int isMagicSquare(int square[3][3])
         }
     }
 
+    // Checking all columns
+    for (int i = 0; i < 3; i++)
+    {
+        tempVal = 0;
+        for (int j = 0; j < 3; j++)
+        {
+            tempVal = tempVal + square[j][i];
+        }
+        if (tempVal != val)
+        {
+            return 0;
+        }
+    }
+
 
 
     return 1;
