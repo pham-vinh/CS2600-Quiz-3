@@ -35,11 +35,13 @@ static int compareEmployeeName(const void *targetPtr, PtrToConstEmployee tableVa
 	return strcmp((char *)targetPtr, tableValuePtr->name); // const void *targetPtr ==> typecast as char pointer then pass into strcmp()
 }
 
+// implement compare employee salary
 static int compareEmployeeSalary(const void *targetPtr, PtrToConstEmployee tableValuePtr)
 {
 	return *(double *)targetPtr != tableValuePtr->salary; // const void *targetPtr ==> typecast as double pointer then dereference
 }
 
+// implement compare employee phone number
 static int compareEmployeePhoneNumber(const void *targetPtr, PtrToConstEmployee tableValuePtr)
 {
 	return strcmp((char *)targetPtr, tableValuePtr->phone); // const void *targetPtr ==> typecast as double pointer then dereference
@@ -56,11 +58,14 @@ PtrToEmployee searchEmployeeByName(PtrToConstEmployee ptr, int size, char *name)
 	return searchEmployeeTable(ptr, size, name, compareEmployeeName);
 }
 
+// implement search employee by phone number
+// looked at previous examples to create
 PtrToEmployee searchEmployeeByPhoneNumber(PtrToConstEmployee ptr, int size, char *phone)
 {
 	return searchEmployeeTable(ptr, size, phone, compareEmployeePhoneNumber);
 }
 
+// implement search employee by salary
 PtrToEmployee searchEmployeeBySalary(PtrToConstEmployee ptr, int size, double salary)
 {
 	return searchEmployeeTable(ptr, size, &salary, compareEmployeeSalary);
