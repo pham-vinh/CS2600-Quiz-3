@@ -46,14 +46,19 @@ void setMaxNum(void)
 	int max = 0;
 	do
 	{
+		printf("Enter the new maximum number:\n");
 		scanf("%d", &max);
-		// if the new maximum number is not between 0 to 10
-		if (max <= 0 || max > 10)
-			printf("Please enter a valid number \n");
+		// if the new maximum number is under 0
+		if (max <= 0)
+			printf("Please enter a valid number greater than 0 \n");
 		// if the new number is valid assign it to our global variable
-		else
+		else {
 			max_number = max;
-	} while (max <= 0 || max > 10);
+			break;
+		}
+	} while (max < 0 || max > 10);
+	printf("The new maximum number generated will be between 1 to %d\n",max_number);
+
 }
 
 void exitFunc(void)
