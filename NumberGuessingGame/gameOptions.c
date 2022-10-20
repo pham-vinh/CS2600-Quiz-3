@@ -1,10 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <unistd.h>
 #include "gameOptions.h"
 
 int max_number = 10;
 const int MAXIMUM_ALLOWED = 10000;
+FILE *fp;
+const char *filename = "./maxNum.txt";
+
 void play(void)
 {
 	char character[2];
@@ -13,9 +17,17 @@ void play(void)
 
 	srand((unsigned)time(&t));
 
+	if (access(filename, F_OK) == 0) {
+		// File exist
+		fp = fopen("maxNum.txt", "r");
+		fscanf(fp, "%d", &max_number);
+	} else {
+		// File doesnt exist
+		max_number = 10;
+	}
 	// random number between 1 and the max number
 	int randNum = rand() % max_number + 1;
-	printf("%d\n", randNum);
+	printf("%d\n", max_number);
 
 	do
 	{
@@ -44,6 +56,7 @@ void play(void)
 void setMaxNum(void)
 {
 	int max = 0;
+	char arr[10];
 	do
 	{
 		printf("Enter the new maximum number:\n");
@@ -52,13 +65,17 @@ void setMaxNum(void)
 		if (max <= 0 && max >= MAXIMUM_ALLOWED)
 			printf("Please enter a valid number greater than 0 \n");
 		// if the new number is valid assign it to our global variable
-		else {
+		else
+		{
+			fp = fopen("maxNum.txt", "w");
+			itoa(max,arr,10) ;
+			fprintf(fp, arr);
+			fclose(fp);
 			max_number = max;
 			break;
 		}
 	} while (max < 0 || max > 10);
-	printf("The new maximum number generated will be between 1 to %d\n",max_number);
-
+	printf("The new maximum number generated will be between 1 to %d\n", max_number);
 }
 
 void exitFunc(void)
