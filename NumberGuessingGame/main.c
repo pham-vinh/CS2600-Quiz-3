@@ -7,7 +7,7 @@
 // displaying game options in promptMenu.c that uses gameOptions.c
 //
 
-
+int max = 10;
 
 // constant array of const strings. The String values can not be updated and no new entries are permitted
 const char *const menuEntries[] = {"Play Game", "Change Max Number", "Quit"};

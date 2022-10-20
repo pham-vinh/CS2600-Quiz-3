@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <time.h>
 #include "gameOptions.h"
-#include "promptMenu.c"
 
 int max = 10;
 
@@ -26,7 +25,7 @@ int setMaxNum(void)
 {
 	printf("Enter new max number: ");
 	scanf("%d", max);
-	menuDisplay();
+	
 }
 
 int exitFunc(void)
