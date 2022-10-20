@@ -43,7 +43,7 @@ static int menuChoice(int n, const char *const items[])
 	return EXIT_SUCCESS;
 }
 
-void menuProcess(int numMenuChoices, const char *const menuItems[], void (*fPtrs[])(void))
+void menuProcess(int numMenuChoices, const char *const menuItems[], int (*fPtrs[])(void))
 {
 	int choice;
 

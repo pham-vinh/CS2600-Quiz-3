@@ -2,29 +2,34 @@
 #include <stdlib.h>
 #include <time.h>
 #include "gameOptions.h"
+#include "promptMenu.c"
 
- int max = 10;
+int max = 10;
 
-
-void play(void)
+int play(void)
 {
 	int guess = 0;
 	time_t t;
 
 	srand((unsigned)time(&t));
-	
+
 	int answer = rand() % max + 1;
-	while (guess != 'q') {
-		printf("");
+
+	while (guess != 'q')
+	{
+		printf("Enter a guess: ");
+		scanf("%d", guess);
 	}
 }
 
-void setMaxNum(void)
+int setMaxNum(void)
 {
-	
+	printf("Enter new max number: ");
+	scanf("%d", max);
+	menuDisplay();
 }
 
-void exitFunc(void)
+int exitFunc(void)
 {
 	printf("Thank you for Playing!");
 	exit(0);
