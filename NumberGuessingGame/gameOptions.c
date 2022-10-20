@@ -1,14 +1,25 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 #include "gameOptions.h"
 
-#define ANNOUNCE(x) printf("In the functions %s\n", x) // This is a macro
 
-void play(void)
+
+void play(int number)
 {
-	ANNOUNCE("Starting Game");
+	int guess = 0;
+	time_t t;
+
+	srand((unsigned)time(&t));
+
+	int max = number;
+	int number = rand() % number + 1;
+	while (guess != 'q') {
+		printf("");
+	}
 }
 
-void setMaxNum(void)
+void setMaxNum(int number)
 {
 	ANNOUNCE("Set Max Number");
 }
