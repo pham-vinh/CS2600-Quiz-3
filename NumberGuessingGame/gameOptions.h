@@ -1,3 +1,3 @@
-extern int play(void); 
-extern int setMaxNum(void);
-extern int exitFunc(void); 
+extern void play(void); 
+extern void setMaxNum(void);
+extern void exitFunc(void); 

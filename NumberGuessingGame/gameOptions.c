@@ -5,31 +5,42 @@
 
 int max = 10;
 
-int play(void)
+void play(void)
 {
-	int guess = 0;
+	int guess = 1;
 	time_t t;
 
 	srand((unsigned)time(&t));
 
-	int answer = rand() % max + 1;
+	int randNum = rand() % max + 1;
 
-	while (guess != 'q')
+	while (guess != 0)
 	{
-		printf("Enter a guess: ");
-		scanf("%d", guess);
+
+		printf("Enter a guess: \n");
+		scanf("%d", &guess);
+
+		// if the guessed number is greater than the random generated number
+		if (guess > randNum)
+			printf("You are too high\n");
+		// if the guessed number is greater than the random generated number
+		else if (guess < randNum)
+			printf("You are too low\n");
+		else
+		{
+			printf("You have guessed the correct number\n");
+			break;
+		}
 	}
-}
 
-int setMaxNum(void)
-{
-	printf("Enter new max number: ");
-	scanf("%d", max);
-	
-}
+	void setMaxNum(void)
+	{
+		printf("Enter new max number: ");
+		scanf("%d", &max);
+	}
 
-int exitFunc(void)
-{
-	printf("Thank you for Playing!");
-	exit(0);
-}
+	void exitFunc(void)
+	{
+		printf("Thank you for Playing!");
+		exit(0);
+	}
