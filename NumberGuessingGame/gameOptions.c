@@ -3,22 +3,29 @@
 #include <time.h>
 #include "gameOptions.h"
 
-int max = 10;
+int max_number = 10;
 
 void play(void)
 {
-	int guess = 1;
+	char character[2];
+	int guess;
 	time_t t;
 
 	srand((unsigned)time(&t));
 
-	int randNum = rand() % max + 1;
+	// random number between 1 and the max number
+	int randNum = rand() % max_number + 1;
+	printf("%d\n", randNum);
 
-	while (guess != 0)
+	do
 	{
-
 		printf("Enter a guess: \n");
-		scanf("%d", &guess);
+		scanf("%s", &character);
+		// when user enters q it quits the game
+		if (character[0] == 'q')
+			break;
+		else
+			guess = atoi(character);
 
 		// if the guessed number is greater than the random generated number
 		if (guess > randNum)
@@ -31,16 +38,26 @@ void play(void)
 			printf("You have guessed the correct number\n");
 			break;
 		}
-	}
+	} while (character[0] != 'q' || randNum == guess);
+}
 
-	void setMaxNum(void)
+void setMaxNum(void)
+{
+	int max = 0;
+	do
 	{
-		printf("Enter new max number: ");
 		scanf("%d", &max);
-	}
+		// if the new maximum number is not between 0 to 10
+		if (max <= 0 || max > 10)
+			printf("Please enter a valid number \n");
+		// if the new number is valid assign it to our global variable
+		else
+			max_number = max;
+	} while (max <= 0 || max > 10);
+}
 
-	void exitFunc(void)
-	{
-		printf("Thank you for Playing!");
-		exit(0);
-	}
+void exitFunc(void)
+{
+	printf("Thank you for Playing!");
+	exit(0);
+}
