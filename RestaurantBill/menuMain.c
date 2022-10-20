@@ -5,7 +5,7 @@
 void printBill(double meal, double tax, double tip)
 {
 	float total;
-    printf("\n**Bill**\n");
+    printf("\n-------Bill-------\n");
 	printf("Meal Cost: $%.2f\n", meal);
 	printf("Tip Amount: $%.2f\n", tip);
 	printf("Tax Amount: $%.2f\n", tax);
