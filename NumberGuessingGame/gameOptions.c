@@ -27,8 +27,9 @@ void play(void)
 	}
 	// random number between 1 and the max number
 	int randNum = rand() % max_number + 1;
-	printf("%d\n", max_number);
 
+
+	printf("Enter a number between 1 and %d\n", max_number);
 	do
 	{
 		printf("Enter a guess: \n");
