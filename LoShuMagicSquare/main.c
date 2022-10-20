@@ -58,7 +58,22 @@ int isMagicSquare(int square[3][3])
         }
     }
 
+    // Checking diagonals
+    tempVal = 0;
+    for (int i = 0; i < 3; i++)
+    {
+        tempVal = tempVal + square[i][i];
+    }
+    if (tempVal != val)
+    {
+        return 0;
+    }
 
+    tempVal = square[0][2] + square[1][1] + square[2][0];
+    if (tempVal != val)
+    {
+        return 0;
+    }
 
     return 1;
 }
