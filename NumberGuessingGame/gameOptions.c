@@ -7,7 +7,6 @@
 int max_number = 10;
 const int MAXIMUM_ALLOWED = 10000;
 FILE *fp;
-const char *filename = "./maxNum.txt";
 
 void play(void)
 {
@@ -17,7 +16,7 @@ void play(void)
 
 	srand((unsigned)time(&t));
 
-	if (access(filename, F_OK) == 0) {
+	if (access("./maxNum.txt", F_OK) == 0) {
 		// File exist
 		fp = fopen("maxNum.txt", "r");
 		fscanf(fp, "%d", &max_number);
