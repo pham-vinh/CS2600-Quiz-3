@@ -43,7 +43,7 @@ int main(void)
 	else
 		printf("Employee Dorris Perl is NOT found in the record\n");
 
-	matchPtr = searchEmployeeBySalary(EmployeeTable, EmployeeTableEntries, 8.32);
+	matchPtr = searchEmployeeBySalary(EmployeeTable, EmployeeTableEntries, 8.52);
 
 	if (matchPtr != NULL)
 		printf("Employee Brian Height is in record %d\n", matchPtr - EmployeeTable);
