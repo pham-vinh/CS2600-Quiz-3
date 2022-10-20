@@ -12,7 +12,7 @@
 const char * const menuEntries[] = {"Play Game", "Change Max Number", "Quit"}; 
 
 //array of Ptrs, pointing to functions - This is a complex data type 
-void (*menuFuncPtrs[])(void) = { play, setMaxNum, exitFunc }; 
+void (*menuFuncPtrs[3])(void) = { play, setMaxNum, exitFunc }; 
 
 
 int main(){
