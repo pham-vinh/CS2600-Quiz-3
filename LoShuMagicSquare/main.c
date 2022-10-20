@@ -4,13 +4,14 @@
 #include <time.h>
 
 // function to print the square
-void printSquare(int square[3][3]){
+void printSquare(int square[3][3])
+{
 
     for (int i = 0; i < 3; i++)
     {
         for (int j = 0; j < 3; j++)
         {
-            printf("%d ",square[i][j]);
+            printf("%d ", square[i][j]);
         }
         printf("\n");
     }
@@ -19,10 +20,33 @@ void printSquare(int square[3][3]){
 // function to fill the square with random numbers using time
 
 // function to check if it is a magic square
-int isMagicSquare()
+int isMagicSquare(int square[3][3])
 {
+    // Storing sum of first row in val, and comparing it with all the other values
+    int val = 0, tempVal = 0;
+    // Checking first row
+    for (int i = 0; i < 3; i++)
+    {
+        val = val + square[0][i];
+    }
 
-    return 0;
+    // Checking 2nd and 3rd row
+    for (int i = 1; i < 3; i++)
+    {
+        tempVal = 0;
+        for (int j = 0; j < 3; j++)
+        {
+            tempVal = tempVal + square[i][j];
+        }
+        if (tempVal != val)
+        {
+            return 0;
+        }
+    }
+
+
+
+    return 1;
 }
 
 int main()
@@ -31,13 +55,13 @@ int main()
     // initiate a 2 x 2.. 2d array
     int magicSquare[3][3];
     int count = 0;
-
+    time_t t;
     // do while loop while the function magic square is not true
     do
     {
         count++;
         int used[10] = {0};
-        srand(time(0) + count); // Changing seed , so that we get new values each time
+        srand((unsigned)time(&t) + count); // Changing seed , so that we get new values each time
         for (int i = 0; i < 3; i++)
         {
             for (int j = 0; j < 3; j++)
@@ -51,13 +75,13 @@ int main()
                 used[n] = 1;
             }
         }
-    } while (isMagicSquare() != 1);
+    } while (isMagicSquare(magicSquare) != 1);
 
     // have a counter for the number of squares generated
-    printf("No. of squares generated : %d \n",count);
+    printf("No. of squares generated : %d \n", count);
 
     // at the end print the grid
     printSquare(magicSquare);
-    
+
     return EXIT_SUCCESS;
 }
