@@ -7,15 +7,20 @@
 void printSquare(int square[3][3])
 {
 
-    for (int i = 0; i < 3; i++)
-    {
-        printf("[ ");
-        for (int j = 0; j < 3; j++)
-        {
-            printf("%d ", square[i][j]);
-        }
-        printf("]\n");
-    }
+	for (int i = 0; i < 3; i++)
+	{
+		printf("[");
+		for (int j = 0; j < 3; j++)
+		{
+			if (j == 2)
+			{
+				printf("%d]", square[i][j]);
+				break;
+			}
+			printf("%d ", square[i][j]);
+		}
+		printf("\n");
+	}
 }
 
 // function to fill the square with random numbers using time
@@ -77,7 +82,7 @@ int main()
 	time_t t;
 
 	srand((unsigned)time(&t)); // Changing seed , so that we get new values each time
-	
+
 	// do while loop while the function magic square is not true
 	do
 	{
