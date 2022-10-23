@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <stdbool.h>
 #include "gameOptions.h"
 
 // using header to make menu options
@@ -16,7 +15,7 @@ void (*menuFuncPtrs[])(void) = {play, setMaxNum, exitFunc};
 
 int main()
 {
-	while (true)
+	while (1)
 	{
 		void menuProcess(int, const char *const[], void (*[])(void));
 		// Dynamic changes with the array
