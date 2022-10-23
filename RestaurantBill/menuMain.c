@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
+// a.exe 80 15
 void printBill(double meal, double tax, double tip)
 {
 	float total;
